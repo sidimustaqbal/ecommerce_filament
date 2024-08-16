@@ -19,11 +19,11 @@ class Product extends Model
         'images'=>'array'
     ];
     
-    public function categories() : BelongsTo {
+    public function category() : BelongsTo {
         return $this->belongsTo(Category::class);
     }
 
-    public function brands() : BelongsTo {
+    public function brand() : BelongsTo {
         return $this->belongsTo(Brand::class);
     }
 
