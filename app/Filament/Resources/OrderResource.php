@@ -187,9 +187,11 @@ class OrderResource extends Resource
                     ->sortable(),
                 SelectColumn::make('status')
                     ->options([
-                        'pending' => 'Pending',
-                        'paid' => 'Paid',
-                        'Failed' => 'Failed',
+                        'new' => 'New',
+                        'proccessing' => 'Proccessing',
+                        'shipped' => 'Shipped',
+                        'delivered' => 'Delivered',
+                        'cancelled' => 'Cancelled',
                     ])
                     ->searchable()
                     ->sortable(),
@@ -228,7 +230,7 @@ class OrderResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();        
+        return static::getModel()::count();
     }
 
     public static function getNavigationBadgeColor(): string|array|null
