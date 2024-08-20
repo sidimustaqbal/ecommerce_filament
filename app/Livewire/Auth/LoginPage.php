@@ -16,7 +16,7 @@ class LoginPage extends Component
             'password'=> 'required|min:6|max:255'
         ]);
 
-        if(Auth::attempt(['email'=>$this->email,'password'=>$this->password])) {
+        if(!Auth::attempt(['email'=>$this->email,'password'=>$this->password])) {
             session()->flash('error','Invalid Credentials');
 
             return;

@@ -19,6 +19,13 @@
 
                     <!-- Form -->
                     <form wire:submit.prevent='save'>
+                        @if (session('error'))
+                            <div class="mb-4 mt-2 bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg p-4 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500"
+                                role="alert" tabindex="-1" aria-labelledby="hs-soft-color-danger-label">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
                         <div class="grid gap-y-4">
                             <!-- Form Group -->
                             <div>
@@ -55,7 +62,7 @@
                                 <div class="relative">
                                     <input type="password" id="password" wire:model="password"
                                         class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                        required aria-describedby="password-error">
+                                        aria-describedby="password-error">
                                     @error('password')
                                         <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
                                             <svg class="h-5 w-5 text-red-500" width="16" height="16"
